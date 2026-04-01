@@ -18,7 +18,7 @@ final class UserShowPresenter
             role_label: $output->role_label,
             is_admin: $output->role->value === 'admin',
             created_at: $output->created_at?->format('Y-m-d H:i') ?? '-',
-            updated_at: $output->created_at?->format('Y-m-d H:i') ?? '-',
+            updated_at: $output->updated_at?->format('Y-m-d H:i') ?? '-',
         );
     }
 }

@@ -69,7 +69,7 @@ final class EloquentUserRepository implements UserRepositoryInterface
 
         $model->update($data);
 
-        return $this->toEntity($model->fresh());
+        return $this->toEntity($model->refresh());
     }
 
     public function delete(int $id): void

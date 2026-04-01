@@ -16,6 +16,7 @@ final class UserOutput
         public readonly UserRole $role,
         public readonly string $role_label,
         public readonly ?\DateTimeImmutable $created_at,
+        public readonly ?\DateTimeImmutable $updated_at,
     ) {}
 
     public static function fromEntity(UserEntity $entity): self
@@ -27,6 +28,7 @@ final class UserOutput
             role: $entity->role,
             role_label: $entity->role->label(),
             created_at: $entity->created_at,
+            updated_at: $entity->updated_at,
         );
     }
 }

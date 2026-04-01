@@ -8,13 +8,14 @@ use App\Application\User\DTO\UpdateUserInput;
 use App\Application\User\DTO\UserOutput;
 use App\Application\User\Exception\DuplicateEmailApplicationException;
 use App\Application\User\Exception\UserNotFoundApplicationException;
+use App\Application\Service\PasswordHasherInterface;
 use App\Domain\User\Repository\UserRepositoryInterface;
-use Illuminate\Support\Facades\Hash;
 
 final class UpdateUserUseCase
 {
     public function __construct(
         private readonly UserRepositoryInterface $repository,
+        private readonly PasswordHasherInterface $hasher,
     ) {}
 
     public function handle(UpdateUserInput $input): UserOutput
@@ -36,7 +37,7 @@ final class UpdateUserUseCase
         );
 
         if ($input->password !== null) {
-            $updated = $updated->withPassword(Hash::make($input->password));
+            $updated = $updated->withPassword($this->hasher->hash($input->password));
         }
 
         $saved = $this->repository->update($updated);

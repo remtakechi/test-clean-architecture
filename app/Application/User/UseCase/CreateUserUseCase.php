@@ -7,14 +7,15 @@ namespace App\Application\User\UseCase;
 use App\Application\User\DTO\CreateUserInput;
 use App\Application\User\DTO\UserOutput;
 use App\Application\User\Exception\DuplicateEmailApplicationException;
+use App\Application\Service\PasswordHasherInterface;
 use App\Domain\User\Entity\UserEntity;
 use App\Domain\User\Repository\UserRepositoryInterface;
-use Illuminate\Support\Facades\Hash;
 
 final class CreateUserUseCase
 {
     public function __construct(
         private readonly UserRepositoryInterface $repository,
+        private readonly PasswordHasherInterface $hasher,
     ) {}
 
     public function handle(CreateUserInput $input): UserOutput
@@ -26,7 +27,7 @@ final class CreateUserUseCase
         $entity = UserEntity::create(
             name: $input->name,
             email: $input->email,
-            password: Hash::make($input->password),
+            password: $this->hasher->hash($input->password),
             role: $input->role,
         );
 

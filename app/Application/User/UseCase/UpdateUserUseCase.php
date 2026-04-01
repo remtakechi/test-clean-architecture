@@ -16,18 +16,19 @@ final class UpdateUserUseCase
     public function __construct(
         private readonly UserRepositoryInterface $repository,
         private readonly PasswordHasherInterface $hasher,
-    ) {}
+    ) {
+    }
 
     public function handle(UpdateUserInput $input): UserOutput
     {
         $entity = $this->repository->findById($input->id);
 
         if ($entity === null) {
-            throw new UserNotFoundApplicationException;
+            throw new UserNotFoundApplicationException();
         }
 
         if ($this->repository->emailExists($input->email, excludeId: $input->id)) {
-            throw new DuplicateEmailApplicationException;
+            throw new DuplicateEmailApplicationException();
         }
 
         $updated = $entity->withUpdatedFields(

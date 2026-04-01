@@ -16,7 +16,8 @@ final class UserEntity
         public readonly UserRole $role,
         public readonly ?\DateTimeImmutable $created_at,
         public readonly ?\DateTimeImmutable $updated_at,
-    ) {}
+    ) {
+    }
 
     public static function create(
         string $name,

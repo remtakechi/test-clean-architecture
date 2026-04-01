@@ -17,7 +17,8 @@ final class UserOutput
         public readonly string $role_label,
         public readonly ?\DateTimeImmutable $created_at,
         public readonly ?\DateTimeImmutable $updated_at,
-    ) {}
+    ) {
+    }
 
     public static function fromEntity(UserEntity $entity): self
     {

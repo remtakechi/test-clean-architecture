@@ -14,5 +14,6 @@ final class UserShowViewModel
         public readonly bool $is_admin,
         public readonly string $created_at,
         public readonly string $updated_at,
-    ) {}
+    ) {
+    }
 }

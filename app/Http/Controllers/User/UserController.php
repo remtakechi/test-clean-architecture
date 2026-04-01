@@ -30,7 +30,8 @@ final class UserController extends Controller
         private readonly UserIndexPresenter $indexPresenter,
         private readonly UserFormPresenter $formPresenter,
         private readonly UserShowPresenter $showPresenter,
-    ) {}
+    ) {
+    }
 
     public function index(): View
     {

@@ -16,12 +16,13 @@ final class CreateUserUseCase
     public function __construct(
         private readonly UserRepositoryInterface $repository,
         private readonly PasswordHasherInterface $hasher,
-    ) {}
+    ) {
+    }
 
     public function handle(CreateUserInput $input): UserOutput
     {
         if ($this->repository->emailExists($input->email)) {
-            throw new DuplicateEmailApplicationException;
+            throw new DuplicateEmailApplicationException();
         }
 
         $entity = UserEntity::create(

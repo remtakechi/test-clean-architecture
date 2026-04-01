@@ -11,7 +11,8 @@ final class ListUsersUseCase
 {
     public function __construct(
         private readonly UserRepositoryInterface $repository,
-    ) {}
+    ) {
+    }
 
     /** @return UserOutput[] */
     public function handle(): array

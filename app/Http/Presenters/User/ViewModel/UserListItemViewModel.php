@@ -13,5 +13,6 @@ final class UserListItemViewModel
         public readonly string $role_label,
         public readonly bool $is_admin,
         public readonly string $created_at,
-    ) {}
+    ) {
+    }
 }

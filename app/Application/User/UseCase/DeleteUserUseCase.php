@@ -11,14 +11,15 @@ final class DeleteUserUseCase
 {
     public function __construct(
         private readonly UserRepositoryInterface $repository,
-    ) {}
+    ) {
+    }
 
     public function handle(int $id): void
     {
         $entity = $this->repository->findById($id);
 
         if ($entity === null) {
-            throw new UserNotFoundApplicationException;
+            throw new UserNotFoundApplicationException();
         }
 
         $this->repository->delete($id);

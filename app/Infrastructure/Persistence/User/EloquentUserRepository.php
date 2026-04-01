@@ -11,7 +11,9 @@ use App\Models\User as UserModel;
 
 final class EloquentUserRepository implements UserRepositoryInterface
 {
-    public function __construct(private readonly UserModel $model) {}
+    public function __construct(private readonly UserModel $model)
+    {
+    }
 
     public function findById(int $id): ?UserEntity
     {

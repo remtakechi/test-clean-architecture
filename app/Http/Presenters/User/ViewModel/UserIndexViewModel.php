@@ -13,7 +13,8 @@ final class UserIndexViewModel
         public readonly array $users,
         public readonly ?string $success_message,
         public readonly ?string $error_message,
-    ) {}
+    ) {
+    }
 
     public function hasUsers(): bool
     {

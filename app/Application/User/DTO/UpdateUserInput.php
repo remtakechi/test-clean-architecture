@@ -14,5 +14,6 @@ final class UpdateUserInput
         public readonly string $email,
         public readonly UserRole $role,
         public readonly ?string $password = null,
-    ) {}
+    ) {
+    }
 }

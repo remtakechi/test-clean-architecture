@@ -16,5 +16,6 @@ final class UserFormViewModel
         public readonly string $role,
         public readonly array $role_options,
         public readonly bool $is_edit,
-    ) {}
+    ) {
+    }
 }

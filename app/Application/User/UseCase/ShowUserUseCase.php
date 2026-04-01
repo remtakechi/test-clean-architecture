@@ -19,7 +19,7 @@ final class ShowUserUseCase
         $entity = $this->repository->findById($id);
 
         if ($entity === null) {
-            throw new UserNotFoundApplicationException();
+            throw new UserNotFoundApplicationException;
         }
 
         return UserOutput::fromEntity($entity);

@@ -44,10 +44,10 @@ final class EloquentUserRepository implements UserRepositoryInterface
     public function create(UserEntity $user): UserEntity
     {
         $model = $this->model->create([
-            'name'     => $user->name,
-            'email'    => $user->email,
+            'name' => $user->name,
+            'email' => $user->email,
             'password' => $user->password,
-            'role'     => $user->role->value,
+            'role' => $user->role->value,
         ]);
 
         return $this->toEntity($model);
@@ -58,9 +58,9 @@ final class EloquentUserRepository implements UserRepositoryInterface
         $model = $this->model->findOrFail($user->id);
 
         $data = [
-            'name'  => $user->name,
+            'name' => $user->name,
             'email' => $user->email,
-            'role'  => $user->role->value,
+            'role' => $user->role->value,
         ];
 
         if ($user->password !== null) {

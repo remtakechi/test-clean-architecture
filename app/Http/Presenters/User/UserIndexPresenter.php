@@ -11,7 +11,7 @@ use App\Http\Presenters\User\ViewModel\UserListItemViewModel;
 final class UserIndexPresenter
 {
     /**
-     * @param UserOutput[] $outputs
+     * @param  UserOutput[]  $outputs
      */
     public function present(
         array $outputs,

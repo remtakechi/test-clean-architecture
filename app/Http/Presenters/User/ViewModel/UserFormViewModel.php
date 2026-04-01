@@ -7,7 +7,7 @@ namespace App\Http\Presenters\User\ViewModel;
 final class UserFormViewModel
 {
     /**
-     * @param array<string, string> $role_options  [value => label]
+     * @param  array<string, string>  $role_options  [value => label]
      */
     public function __construct(
         public readonly ?int $id,

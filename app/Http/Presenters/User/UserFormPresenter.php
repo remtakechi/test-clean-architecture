@@ -41,6 +41,7 @@ final class UserFormPresenter
         foreach (UserRole::cases() as $case) {
             $options[$case->value] = $case->label();
         }
+
         return $options;
     }
 }

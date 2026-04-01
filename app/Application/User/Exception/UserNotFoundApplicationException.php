@@ -8,6 +8,6 @@ final class UserNotFoundApplicationException extends UserApplicationException
 {
     public function __construct()
     {
-        parent::__construct("The specified user could not be found.");
+        parent::__construct('The specified user could not be found.');
     }
 }

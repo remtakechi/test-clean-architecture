@@ -7,7 +7,7 @@ namespace App\Http\Presenters\User\ViewModel;
 final class UserIndexViewModel
 {
     /**
-     * @param UserListItemViewModel[] $users
+     * @param  UserListItemViewModel[]  $users
      */
     public function __construct(
         public readonly array $users,

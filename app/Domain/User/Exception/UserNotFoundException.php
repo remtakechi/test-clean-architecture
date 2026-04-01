@@ -8,6 +8,6 @@ final class UserNotFoundException extends DomainException
 {
     public function __construct(int $id)
     {
-        parent::__construct("User not found.", ['id' => $id]);
+        parent::__construct('User not found.', ['id' => $id]);
     }
 }

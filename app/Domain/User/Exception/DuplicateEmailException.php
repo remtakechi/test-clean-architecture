@@ -8,6 +8,6 @@ final class DuplicateEmailException extends DomainException
 {
     public function __construct(string $email)
     {
-        parent::__construct("The email address is already in use.", ['email' => $email]);
+        parent::__construct('The email address is already in use.', ['email' => $email]);
     }
 }

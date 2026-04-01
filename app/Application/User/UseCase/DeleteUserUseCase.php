@@ -18,7 +18,7 @@ final class DeleteUserUseCase
         $entity = $this->repository->findById($id);
 
         if ($entity === null) {
-            throw new UserNotFoundApplicationException();
+            throw new UserNotFoundApplicationException;
         }
 
         $this->repository->delete($id);

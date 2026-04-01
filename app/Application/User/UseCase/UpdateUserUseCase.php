@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\User\UseCase;
 
+use App\Application\Service\PasswordHasherInterface;
 use App\Application\User\DTO\UpdateUserInput;
 use App\Application\User\DTO\UserOutput;
 use App\Application\User\Exception\DuplicateEmailApplicationException;
 use App\Application\User\Exception\UserNotFoundApplicationException;
-use App\Application\Service\PasswordHasherInterface;
 use App\Domain\User\Repository\UserRepositoryInterface;
 
 final class UpdateUserUseCase
@@ -23,11 +23,11 @@ final class UpdateUserUseCase
         $entity = $this->repository->findById($input->id);
 
         if ($entity === null) {
-            throw new UserNotFoundApplicationException();
+            throw new UserNotFoundApplicationException;
         }
 
         if ($this->repository->emailExists($input->email, excludeId: $input->id)) {
-            throw new DuplicateEmailApplicationException();
+            throw new DuplicateEmailApplicationException;
         }
 
         $updated = $entity->withUpdatedFields(

@@ -11,8 +11,8 @@ enum UserRole: string
 
     public function label(): string
     {
-        return match($this) {
-            UserRole::Admin  => 'Admin',
+        return match ($this) {
+            UserRole::Admin => 'Admin',
             UserRole::Member => 'Member',
         };
     }

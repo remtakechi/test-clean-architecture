@@ -22,14 +22,14 @@ use Illuminate\View\View;
 final class UserController extends Controller
 {
     public function __construct(
-        private readonly ListUsersUseCase   $listUsers,
-        private readonly ShowUserUseCase    $showUser,
-        private readonly CreateUserUseCase  $createUser,
-        private readonly UpdateUserUseCase  $updateUser,
-        private readonly DeleteUserUseCase  $deleteUser,
+        private readonly ListUsersUseCase $listUsers,
+        private readonly ShowUserUseCase $showUser,
+        private readonly CreateUserUseCase $createUser,
+        private readonly UpdateUserUseCase $updateUser,
+        private readonly DeleteUserUseCase $deleteUser,
         private readonly UserIndexPresenter $indexPresenter,
-        private readonly UserFormPresenter  $formPresenter,
-        private readonly UserShowPresenter  $showPresenter,
+        private readonly UserFormPresenter $formPresenter,
+        private readonly UserShowPresenter $showPresenter,
     ) {}
 
     public function index(): View
